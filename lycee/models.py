@@ -21,6 +21,8 @@ class Cursus(models.Model):
     null=True,
     default='0000-00001'
   )
+  def __str__(self):
+    return '{} {}'.format(self.name,self.scholar_year)
 class Student(models.Model):
   first_name = models.CharField(
     max_length=50,
@@ -69,3 +71,5 @@ class Student(models.Model):
     on_delete=models.CASCADE, # necessaire selon la version de Django
     null=True
   )
+  def __str__(self):
+    return self.email
